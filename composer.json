@@ -1,0 +1,26 @@
+{
+  "name": "licensejet/management-api-wrapper",
+  "description": "Wrapper for the LicenseJet Management API",
+  "license": "MIT",
+  "homepage": "http://licensejet.com",
+  "authors": [
+    {
+      "name": "LicenseJet",
+      "email": "support@licensejet.com"
+    }
+  ],
+  "require": {
+    "php": "^7.1",
+    "ext-curl": "*",
+    "guzzlehttp/guzzle": "6.*",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "LicenseJet\\": "\\"
+    },
+    "files": [
+      "LicenseJet/functions.php"
+    ]
+  }
+}
