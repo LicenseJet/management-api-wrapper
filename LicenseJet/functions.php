@@ -1,6 +1,7 @@
 <?php
 
 use LicenseJet\Collection\LicenseCollection;
+use LicenseJet\Collection\ProjectCollection;
 use LicenseJet\Endpoint\ProjectEndpoint;
 use LicenseJet\Endpoint\RootEndpoint;
 use LicenseJet\Identity;
@@ -13,17 +14,17 @@ if (!function_exists('licensejet_get_projects'))
      *
      * @param $apiUrl
      * @param $apiKey
-     * @return LicenseCollection
+     * @return ProjectCollection
      * @throws LicenseJetException
      */
-    function licensejet_get_projects(string $apiUrl, string $apiKey) : LicenseCollection
+    function licensejet_get_projects(string $apiUrl, string $apiKey) : ProjectCollection
     {
         $projects = new ProjectEndpoint(new Identity($apiUrl, $apiKey));
         
         $response = $projects->list()->get();
         
         // Make sure we have a valid response
-        if ($response instanceof LicenseCollection)
+        if ($response instanceof ProjectCollection)
         {
             return $response;
         }
