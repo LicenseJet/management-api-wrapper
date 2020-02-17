@@ -75,16 +75,6 @@ Class License extends Resource
     }
 
     /**
-     * Set the access key.
-     * 
-     * @param string $accessKey
-     */
-    public function setAccessKey(string $accessKey) : void
-    {
-        $this->setAttribute('access_key', $accessKey);
-    }
-
-    /**
      * Get the status.
      * 
      * Example: active, expired, suspended, terminated
