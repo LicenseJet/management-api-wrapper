@@ -24,6 +24,11 @@ Class Endpoint
     public $identity;
 
     /**
+     * Version number of the API
+     */
+    private $version = '1.0';
+
+    /**
      * Endpoint constructor.
      * 
      * @param Identity $identity
@@ -53,7 +58,8 @@ Class Endpoint
         // Create request
         $request = new Request($method, $uri, [
             'Authorization' => 'APIKEY '.$this->identity->getKey(),
-            'Accept' => 'application/json'
+            'Accept' => 'application/json',
+            'Wrapper-version' => $this->version
         ]);
 
         $options = [];
