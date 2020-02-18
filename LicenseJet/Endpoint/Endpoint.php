@@ -1,6 +1,6 @@
 <?php namespace LicenseJet\Endpoint;
 
-use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use LicenseJet\Identity;
@@ -74,7 +74,7 @@ Class Endpoint
             // return Response object on successful response
             return new Response($client->send($request, $options));
         }
-        catch (ClientException $e)
+        catch (BadResponseException $e)
         {
             // GuzzleHttp exceptions are transformed into LicenseJet Exception
             throw new LicenseJetException('Request failed: '.$e->getResponse()->getReasonPhrase(), null, $e);
